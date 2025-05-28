@@ -1,15 +1,15 @@
-use rand::{thread_rng, Rng};
+use rand::Rng;
 use std::io;
 
 fn main() {
     let guess_list = ["apple", "banana", "mango", "oranges"];
+    let mut rng = rand::thread_rng();
 
     loop {
-        let mut rng = thread_rng();
         let index = rng.gen_range(0..guess_list.len());
         let random_fruit = guess_list[index];
 
-        println!("Guess the fruit!: {}", random_fruit);
+        println!("Guess the fruit!: {}",);
 
         let mut input = String::new();
 
@@ -26,7 +26,7 @@ fn main() {
                 if guess_checker(&fruit_selected, random_fruit) {
                     println!("🎉 Winner!! You guessed it right: {} 🎉", random_fruit);
                     println!("Restarting the game...\n");
-                    continue; // RESTART instead of break
+                    continue;
                 } else {
                     println!("❌ Wrong guess. Try again!\n");
                 }
